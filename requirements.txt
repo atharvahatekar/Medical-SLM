@@ -1,0 +1,7 @@
+torch>=2.1
+numpy
+tokenizers>=0.15
+datasets>=2.18
+huggingface_hub>=0.23
+pyarrow
+ipykernel
