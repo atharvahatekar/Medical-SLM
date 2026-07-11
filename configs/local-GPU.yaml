@@ -1,0 +1,22 @@
+# ~30M params, 512 context, fp16 for Turing. Sized to fit a 6GB RTX 2060.
+vocab_size: 8000
+dim: 512
+n_layers: 8
+n_heads: 8
+max_seq_len: 512
+dropout: 0.0
+tie_embeddings: true
+
+mix: {fineweb_edu: 0.5, pubmed: 0.5}
+
+batch_size: 8        # lower to 4 if you OOM
+grad_accum: 8        # effective batch = 8 * 8 * 512 = 33k tokens/step
+lr: 8.0e-4
+min_lr: 8.0e-5
+warmup_steps: 200
+max_steps: 6000      # 6000 * 33k = ~197M tokens (~0.7 epoch of your 298M)
+weight_decay: 0.1
+grad_clip: 1.0
+eval_every: 250
+
+dtype: float16       # RTX 2060 (Turing) has no bf16

@@ -1,0 +1,13 @@
+vocab_size: 8000
+dim: 128
+n_layers: 2
+n_heads: 4
+max_seq_len: 128
+mix: {fineweb_edu: 0.5, pubmed: 0.5}
+batch_size: 4
+grad_accum: 2
+lr: 1.0e-3
+warmup_steps: 5
+max_steps: 20
+eval_every: 10
+dtype: float32
